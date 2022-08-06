@@ -3,7 +3,16 @@
     <title>My Site!</title>
     <script src="myapp.js"></script>
     <link rel="stylesheet" href="myapp.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
     <h1>This is my GitHub Pages website!</h1>
+    <label for="minutes">Minutes: </label>
+    <input id="minutes" type="number" max="60" min="0"><br>
+    <label for="seconds">Seconds: </label>
+    <input id="seconds" type="number" max="60" min="0"><br>
+    <button id="submit">Submit</button>
+    <p>Countdown: <span id="clock"></span></p>
 </body>
