@@ -3,16 +3,41 @@
     <title>My Site!</title>
     <script src="myapp.js"></script>
     <link rel="stylesheet" href="myapp.css">
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
-    <h1>This is my GitHub Pages website!</h1>
-    <label for="minutes">Minutes: </label>
-    <input id="minutes" type="number" max="60" min="0"><br>
-    <label for="seconds">Seconds: </label>
-    <input id="seconds" type="number" max="60" min="0"><br>
-    <button id="submit">Submit</button>
-    <p>Countdown: <span id="clock"></span></p>
+    <div class="container timer_setup">
+        <h1>Interval Timer!</h1>
+        <p>Create the interval of time you would like with the number of sets.</p>
+        <div class="input_container">
+            <div class="time_container">
+                <label for="minutes">Time (M:S): </label>
+                <span class="input_span">
+                    <input id="minutes" type="number" max="60" min="0" required />
+                    <span class="colon">:</span>
+                    <input id="seconds" type="number" max="60" min="1" required />
+                </span>
+            </div>
+            <div class="sets">
+                <label for="set_count">Number of Sets: </label>
+                <input id="set_count" type="number" max="60" min="1" required />
+            </div>
+            <div class="interval_button_container">
+                <button id="remove_interval">Remove Interval</button>    
+                <button id="add_interval">Add Interval</button>    
+            </div>
+            <br />
+            <div class="create_timer_container">
+                <button id="create_timer">Create Timer</button>
+            </div>
+        </div>
+    </div>
+    <div class="container timer_display" style="display:none;">
+        <h1>Timer</h1>
+        <h1 class="countdown_timer">00:00</h1>
+        <button id="start_timer">Start Timer</button>
+        <span>
+            <button id="reset_timer">Reset Timer</button>
+            <button id="create_new_timer">Create New Timer</button>
+        </span>
+    </div>
 </body>

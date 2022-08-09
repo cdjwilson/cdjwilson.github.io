@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: inherit;
+}
+
+.input_container {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 40%;
+    height: 350px;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+}
+
+.countdown_timer {
+    justify-content: center;
+    align-items: center;
+}
+
+.time_container {
+margin-bottom: 2px;
+}
+
+#minutes {
+    text-align: right;
+}
+
+button {
+    margin-top: 5px;
+    width: 150px;
+    font-size: 16px;
+}
+
+input {
+    font-size: 25px;
+    align-items: right;
+}
+
+.colon {
+    font-size:25px;
+}
+
+h1 {
+    margin: 0px;
+}
+
+.create_timer_container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.interval_button_container {
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+}
