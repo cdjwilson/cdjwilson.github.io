@@ -77,7 +77,7 @@ h1 {
    transition: .3s;
 }
 
-#create_timer {
+#create_timer, #start_timer {
     background: linear-gradient(45deg, #0acf24 10%, #095e17 80%);
 }
 
@@ -85,16 +85,8 @@ h1 {
     background: linear-gradient(45deg, #cf310a 10%, #5e0909 80%);
 }
 
-#start_timer {
-    background: linear-gradient(45deg, #0acf24 10%, #095e17 80%);
-}
-
-#create_new_timer {
-   background: linear-gradient(45deg, #129cd3 10%, #6932a8 80%);
-
-}
-
 .title {
+    margin-top: 20px;
     text-shadow: 1px 1px 1px #129cd3,
                  2px 2px 1px #6932a8;
 }
