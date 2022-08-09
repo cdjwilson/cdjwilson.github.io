@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //countdown.innerHTML = `0:0`;
     document.querySelector("#add_interval").addEventListener('click', () => {
         let time_containers = Array.from(document.querySelectorAll(".time_container"));
-        if (time_containers.length < 7) {
+        if (time_containers.length < 70) {
             let time_container = time_containers.pop();
             let new_container = document.createElement('div');
             new_container.classList.add("time_container");

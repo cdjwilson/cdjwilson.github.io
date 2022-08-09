@@ -6,8 +6,12 @@
 </head>
 <body>
     <div class="container timer_setup">
-        <h1>Interval Timer!</h1>
+        <h1 class="title">Interval Timer!</h1>
         <p>Create the interval of time you would like with the number of sets.</p>
+        <div class="interval_button_container">
+            <button id="remove_interval">Remove Interval</button>    
+            <button id="add_interval">Add Interval</button>    
+        </div>
         <div class="input_container">
             <div class="time_container">
                 <label for="minutes">Time (M:S): </label>
@@ -21,10 +25,6 @@
                 <label for="set_count">Number of Sets: </label>
                 <input id="set_count" type="number" max="60" min="1" required />
             </div>
-            <div class="interval_button_container">
-                <button id="remove_interval">Remove Interval</button>    
-                <button id="add_interval">Add Interval</button>    
-            </div>
             <br />
             <div class="create_timer_container">
                 <button id="create_timer">Create Timer</button>
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="container timer_display" style="display:none;">
-        <h1>Timer</h1>
+        <h1 class="title">Timer</h1>
         <h1 class="countdown_timer">00:00</h1>
         <button id="start_timer">Start Timer</button>
         <span>

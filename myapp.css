@@ -1,18 +1,25 @@
+body {
+    background-color: #a9dff5;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-grow: inherit;
+    justify-content: center;
+    overflow:hidden;
 }
 
 .input_container {
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 40%;
-    height: 350px;
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #129cd3 10%, #6932a8 80%) 1;
+    width: 400px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
     padding: 5px;
-    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
 }
 
 .countdown_timer {
@@ -47,15 +54,47 @@ h1 {
     margin: 0px;
 }
 
-.create_timer_container {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.interval_button_container {
+    float: left;
     margin-bottom: 5px;
 }
 
-.interval_button_container {
-    position: absolute;
-    bottom: 35px;
-    width: 100%;
+#remove_interval, #add_interval, #create_timer, #start_timer, #reset_timer, #create_new_timer {
+    /* reset */
+   -webkit-appearance: none;
+   border: 0;
+   outline: 0;
+   /* styles */
+   position: relative;
+   background: linear-gradient(45deg, #129cd3 10%, #6932a8 80%);
+   background-size: 200% 100%;
+   height: 50px;
+   padding: 0rem 1.5rem;
+   color: white;
+   border-radius: 40px;
+   font-size: 1.2rem;
+   font-family: Arial, Helvetica, sans-serif;
+   transition: .3s;
+}
+
+#create_timer {
+    background: linear-gradient(45deg, #0acf24 10%, #095e17 80%);
+}
+
+#reset_timer {
+    background: linear-gradient(45deg, #cf310a 10%, #5e0909 80%);
+}
+
+#start_timer {
+    background: linear-gradient(45deg, #0acf24 10%, #095e17 80%);
+}
+
+#create_new_timer {
+   background: linear-gradient(45deg, #129cd3 10%, #6932a8 80%);
+
+}
+
+.title {
+    text-shadow: 1px 1px 1px #129cd3,
+                 2px 2px 1px #6932a8;
 }
