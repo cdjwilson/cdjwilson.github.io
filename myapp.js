@@ -24,68 +24,68 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#create_timer").addEventListener('click', () => {
         let minutes = Array.from(document.querySelectorAll("#minutes"));
         let seconds = Array.from(document.querySelectorAll("#seconds"));
-        let create = true;
         for (let i = 0; i < minutes.length; i++) {
-            if (minutes[i].value == "" || seconds[i].value == "") {
-                create = false;
+            if (minutes[i].value == "") {
+                minutes[i].value = 0;
+            } 
+            if (seconds[i].value == "") {
+                seconds[i].value = 0;
             }            
         }
         let sets = parseInt(document.querySelector("#set_count").value);
         if (document.querySelector("#set_count").value == "") {
-            create = false;
+            sets = 1
         }
-        if (create) {
-            document.querySelector(".timer_setup").style.display = "none";
-            let timer_display = document.querySelector(".timer_display");
-            timer_display.style.display = "flex";
-            let countdown_timer = document.querySelector(".countdown_timer");
-            document.querySelector(".sets_left").innerHTML = `Sets left: ${sets}`
-            countdown_timer.style.fontSize = "96px"
-            countdown_timer.innerHTML = `${minutes[0].value}:${seconds[0].value}`;
-            document.querySelector("#start_timer").addEventListener("click", () => {
-                clearInterval(timer);
-                let minute = [];
-                let second = [];
-                for (let i = 0; i < sets; i++) {
-                    for (let j = 0; j < minutes.length; j++) {
-                        minute.push(minutes[j].value);
-                        second.push(seconds[j].value);
-                    }
+        document.querySelector(".timer_setup").style.display = "none";
+        let timer_display = document.querySelector(".timer_display");
+        timer_display.style.display = "flex";
+        let countdown_timer = document.querySelector(".countdown_timer");
+        document.querySelector(".sets_left").innerHTML = `Sets left: ${sets}`
+        countdown_timer.style.fontSize = "96px"
+        countdown_timer.innerHTML = `${minutes[0].value}:${seconds[0].value}`;
+        document.querySelector("#start_timer").addEventListener("click", () => {
+            clearInterval(timer);
+            let minute = [];
+            let second = [];
+            for (let i = 0; i < sets; i++) {
+                for (let j = 0; j < minutes.length; j++) {
+                    minute.push(minutes[j].value);
+                    second.push(seconds[j].value);
                 }
-                sets--;
-                document.querySelector(".sets_left").innerHTML = `Sets left: ${sets}`;
-                let i = 0;
-                timer = setInterval(() => {
-                    if (minute[i] == 0) {
-                        if (second[i] == 0) {
-                            if (i < minute.length-1) {
-                                i++;
-                                if (i % minutes.length == 0) {
-                                    sets--;
-                                    document.querySelector(".sets_left").innerHTML = `Sets left: ${sets}`;
-                                }
-                            } else {
-                                clearInterval(timer);
+            }
+            sets--;
+            document.querySelector(".sets_left").innerHTML = `Sets left: ${sets}`;
+            let i = 0;
+            timer = setInterval(() => {
+                if (minute[i] == 0) {
+                    if (second[i] == 0) {
+                        if (i < minute.length-1) {
+                            i++;
+                            if (i % minutes.length == 0) {
+                                sets--;
+                                document.querySelector(".sets_left").innerHTML = `Sets left: ${sets}`;
                             }
                         } else {
-                            second[i]--;
+                            clearInterval(timer);
                         }
                     } else {
-                        if(second[i] == 0) {
-                            minute[i]--;
-                            second[i] = 59;
-                        } else {
-                            second[i]--;
-                        }
+                        second[i]--;
                     }
-                    countdown_timer.innerHTML = `${minute[i]}:${second[i]}`;
-                }, 1000);
-                document.querySelector("#reset_timer").addEventListener('click', () => {
-                    clearInterval(timer);
-                    document.querySelector("#create_timer").click();
-                });
+                } else {
+                    if(second[i] == 0) {
+                        minute[i]--;
+                        second[i] = 59;
+                    } else {
+                        second[i]--;
+                    }
+                }
+                countdown_timer.innerHTML = `${minute[i]}:${second[i]}`;
+            }, 1000);
+            document.querySelector("#reset_timer").addEventListener('click', () => {
+                clearInterval(timer);
+                document.querySelector("#create_timer").click();
             });
-        }
+        });
     });
 
     document.querySelector("#create_new_timer").addEventListener('click', () => {
