@@ -27,8 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         timer_display.style.display = "flex";
         let minutes = Array.from(document.querySelectorAll("#minutes"));
         let seconds = Array.from(document.querySelectorAll("#seconds"));
-        let sets = document.querySelector("#set_count").value;
+        let sets = parseInt(document.querySelector("#set_count").value);
         let countdown_timer = document.querySelector(".countdown_timer");
+        document.querySelector(".sets_left").innerHTML = `Sets left: ${sets}`
         countdown_timer.style.fontSize = "96px"
         countdown_timer.innerHTML = `${minutes[0].value}:${seconds[0].value}`;
         document.querySelector("#start_timer").addEventListener("click", () => {
@@ -41,12 +42,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     second.push(seconds[j].value);
                 }
             }
-            let i = 0;
+            sets--;
+            document.querySelector(".sets_left").innerHTML = `Sets left: ${sets}`
+        let i = 0;
             timer = setInterval(() => {
                 if (minute[i] == 0) {
                     if (second[i] == 0) {
                         if (i < minute.length-1) {
                             i++;
+                            if (i % minutes.length == 0) {
+                                sets--;
+                                document.querySelector(".sets_left").innerHTML = `Sets left: ${sets}`
+                            }
                         } else {
                             clearInterval(timer);
                         }
