@@ -79,7 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         second[i]--;
                     }
                 }
-                countdown_timer.innerHTML = `${minute[i]}:${second[i]}`;
+                if (second[i] < 10) {
+                    countdown_timer.innerHTML = `${minute[i]}:0${second[i]}`;
+                } else {
+                    countdown_timer.innerHTML = `${minute[i]}:${second[i]}`;
+                }
             }, 1000);
             document.querySelector("#reset_timer").addEventListener('click', () => {
                 clearInterval(timer);
